@@ -205,7 +205,7 @@ bool tryDecodePicture( Picture* pcEncPic, const int expectedPoc, const std::stri
                 {
 #endif
 
-#if WMZ_CNNLF
+#if ADCNN
 					if (pic->cs->sps->getCNNLFEnabledFlag())
 					{
 						for (int compIdx = 0; compIdx < MAX_NUM_COMPONENT; compIdx++)
@@ -450,7 +450,7 @@ void DecLib::create()
 {
   m_apcSlicePilot = new Slice;
   m_uiSliceSegmentIdx = 0;
-#if WMZ_CNNLF
+#if ADCNN
   m_cCNNLoopFilter.initTF(m_pbpath, m_sWorkingMode, m_iGPUid);
 #endif
 }
@@ -493,7 +493,7 @@ void DecLib::deletePicBuffer ( )
   }
   m_cALF.destroy();
   m_cSAO.destroy();
-#if WMZ_CNNLF
+#if ADCNN
   m_cCNNLoopFilter.destroy();
 #endif
   m_cLoopFilter.destroy();
@@ -603,7 +603,7 @@ void DecLib::executeLoopFilters()
     m_cALF.ALFProcess( cs, cs.slice->getAlfSliceParam() );
   }
 
-#if WMZ_CNNLF
+#if ADCNN
   m_cCNNLoopFilter.CNNLFProcess(cs, cs.slice->getCnnlfSliceParam(), cs.slice->getSliceQp());
 #endif
 }
@@ -820,7 +820,7 @@ void DecLib::xActivateParameterSets()
     m_pcPic->cs->pcv   = pps->pcv;
 
     // Initialise the various objects for the new set of settings
-#if WMZ_CNNLF
+#if ADCNN
 	m_cCNNLoopFilter.create(sps->getPicWidthInLumaSamples(), sps->getPicHeightInLumaSamples(), sps->getChromaFormatIdc(), sps->getMaxCUWidth(), sps->getMaxCUHeight(), sps->getMaxCodingDepth(), sps->getBitDepths().recon);
 #endif
     m_cSAO.create( sps->getPicWidthInLumaSamples(), sps->getPicHeightInLumaSamples(), sps->getChromaFormatIdc(), sps->getMaxCUWidth(), sps->getMaxCUHeight(), sps->getMaxCodingDepth(), pps->getPpsRangeExtension().getLog2SaoOffsetScale(CHANNEL_TYPE_LUMA), pps->getPpsRangeExtension().getLog2SaoOffsetScale(CHANNEL_TYPE_CHROMA) );

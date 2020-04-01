@@ -139,7 +139,7 @@ public:
   void alf( const AlfSliceParam& alfSliceParam );
   void alfFilter( const AlfSliceParam& alfSliceParam, const bool isChroma );
 
-#if WMZ_CNNLF
+#if ADCNN
   void cnnlf(const CnnlfSliceParam& cnnlfSliceParam);
 #endif
 

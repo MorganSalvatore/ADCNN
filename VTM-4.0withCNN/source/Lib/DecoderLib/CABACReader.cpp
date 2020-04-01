@@ -181,7 +181,7 @@ bool CABACReader::coding_tree_unit( CodingStructure& cs, const UnitArea& area, i
     }
   }
 
-#if WMZ_CNNLF
+#if ADCNN
   CnnlfSliceParam& cnnlfSliceParam = cs.slice->getCnnlfSliceParam();
 
   if (cs.sps->getCNNLFEnabledFlag() && (cnnlfSliceParam.enabledFlag[COMPONENT_Y] || cnnlfSliceParam.enabledFlag[COMPONENT_Cb] || cnnlfSliceParam.enabledFlag[COMPONENT_Cr]))

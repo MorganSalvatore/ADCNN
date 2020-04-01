@@ -173,7 +173,7 @@ void CABACWriter::coding_tree_unit( CodingStructure& cs, const UnitArea& area, i
     codeAlfCtuEnableFlag( cs, ctuRsAddr, compIdx );
   }
 
-#if WMZ_CNNLF
+#if ADCNN
   for (int compIdx = 0; compIdx < MAX_NUM_COMPONENT; compIdx++)
   {
 	  codeCnnlfCtuEnableFlag(cs, ctuRsAddr, compIdx);
@@ -3424,7 +3424,7 @@ void CABACWriter::codeAlfCtuEnableFlag( CodingStructure& cs, uint32_t ctuRsAddr,
   }
 }
 
-#if WMZ_CNNLF
+#if ADCNN
 void CABACWriter::codeCnnlfCtuEnableFlags(CodingStructure& cs, ChannelType channel, CnnlfSliceParam* cnnlfParam)
 {
 	if (isLuma(channel))

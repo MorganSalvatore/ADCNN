@@ -97,7 +97,7 @@ bool DecAppCfg::parseCfg( int argc, char* argv[] )
   ("OutputDecodedSEIMessagesFilename",  m_outputDecodedSEIMessagesFilename,    string(""), "When non empty, output decoded SEI messages to the indicated file. If file is '-', then output to stdout\n")
   ("ClipOutputVideoToRec709Range",      m_bClipOutputVideoToRec709Range,  false,   "If true then clip output video to the Rec. 709 Range on saving")
   ("PYUV",                      m_packedYUVMode,                       false,      "If true then output 10-bit and 12-bit YUV data as 5-byte and 3-byte (respectively) packed YUV data. Ignored for interlaced output.")
-#if WMZ_CNNLF
+#if ADCNN
 	  ("tf_pb_path", m_pbpath, string("weights.pb"), "tensorflow pb file path")
 	  ("WorkingMode,-mode", m_sWorkingMode, string("GPU"), "Deep Learning Working Mode")
 	  ("GPUid,-gpuid", m_iGPUid, string(""), "GPU id")
@@ -235,7 +235,7 @@ DecAppCfg::DecAppCfg()
 , m_bClipOutputVideoToRec709Range(false)
 , m_packedYUVMode(false)
 , m_statMode(0)
-#if WMZ_CNNLF
+#if ADCNN
 , m_pbpath()
 , m_sWorkingMode()
 , m_iGPUid()

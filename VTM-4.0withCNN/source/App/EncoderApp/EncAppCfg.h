@@ -73,7 +73,7 @@ protected:
   std::string m_bitstreamFileName;                            ///< output bitstream file
   std::string m_reconFileName;                                ///< output reconstruction file
 
-#if WMZ_CNNLF
+#if ADCNN
   bool			m_cnnlf;                                        ///> Cnn Loop Filter
   std::string	m_pbpath;
   std::string	cfg_WorkingMode;

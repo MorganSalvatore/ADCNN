@@ -56,7 +56,7 @@
 #if JVET_M0427_INLOOP_RESHAPER
 #include "CommonLib/Reshape.h"
 #endif
-#if WMZ_CNNLF
+#if ADCNN
 #include "CommonLib/CNNLoopFilter.h"
 #endif
 
@@ -103,7 +103,7 @@ private:
   LoopFilter              m_cLoopFilter;
   SampleAdaptiveOffset    m_cSAO;
   AdaptiveLoopFilter      m_cALF;
-#if WMZ_CNNLF
+#if ADCNN
   CNNLoopFilter           m_cCNNLoopFilter;
 #endif
 #if JVET_M0427_INLOOP_RESHAPER
@@ -137,7 +137,7 @@ private:
   bool                    m_warningMessageSkipPicture;
 
   std::list<InputNALUnit*> m_prefixSEINALUs; /// Buffered up prefix SEI NAL Units.
-#if WMZ_CNNLF
+#if ADCNN
   std::string		m_pbpath;
   std::string		m_sWorkingMode;
   std::string		m_iGPUid;
@@ -155,7 +155,7 @@ public:
 
   void  setDecodedPictureHashSEIEnabled(int enabled) { m_decodedPictureHashSEIEnabled=enabled; }
 
-#if WMZ_CNNLF
+#if ADCNN
   void					setpbpath(std::string a)		{ m_pbpath = a; }
   std::string			getpbpath()						const { return m_pbpath; }
   void					setworkingmode(std::string a)	{ m_sWorkingMode = a; }

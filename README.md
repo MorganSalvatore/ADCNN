@@ -24,28 +24,35 @@ link: [IEEE Xplore](https://ieeexplore.ieee.org/document/8852743)
 
 ## Inference
 
-* Download this repo, and build the software using `cmake`
+* Clone this repo
+```
+  git clone https://github.com/MorganSalvatore/ADCNN.git
+```
 
-* Download pre-trained models [here]
+* Build the software using `cmake`
 
-* Download the one you need in the repo ([prebuilt tensorflow](https://github.com/fo40225/tensorflow-windows-wheel/tree/master/1.10.0/cpp)). For example, if your CPU support AVX2 and you want to do inference with GPU, download `libtensorflow-gpu-windows-x86_64-1.10.0-avx2cuda92cudnn72.7z`. If your CPU support SSE2 and you want to do inference with only CPU, download `libtensorflow-cpu-windows-x86_64-1.10.0-sse2.7z`.
+* Download one `prebuilt tensorflow` you need in [this repo](https://github.com/fo40225/tensorflow-windows-wheel/tree/master/1.10.0/cpp). For example, if your CPU support AVX2 and you want to do inference with GPU, download `libtensorflow-gpu-windows-x86_64-1.10.0-avx2cuda92cudnn72.7z`. If your CPU support SSE2 and you want to do inference with only CPU, download `libtensorflow-cpu-windows-x86_64-1.10.0-sse2.7z`.
 
-* Add `include` & `lib` of `libtensorflow` into the generated solution file in Visual Studio
+* Open the generated solution file in Visual Studio. For the following projects, add `include` of `libtensorflow` and disable `Treat Warnings as Errors` settings :
 
-* Compile the VS project to get `EncoderApp.exe` and `DecoderApp.exe`
+  ​	`CommonLib` `EncoderLib` `DecoderLib` `EncoderApp` `DecoderApp`
+
+* Add `lib/tensorflow.lib` of `libtensorflow` into `CommonLib` project.
+
+* Compile the VS project to get `EncoderApp.exe` and `DecoderApp.exe`. Copy `bin/tensorflow.dll` of `libtensorflow` into the folder of exe files.
 
 * Run VTM using command line
 
   ```win cmd
-  EncoderApp -c PATH/TO/CFG  -i PATH/TO/YUV  -wdt WIDTH_OF_INPUT  -hgt HEIGHT_OF_INPUT  -fr FRAMERATE_OF_INPUT  -f FRAMES_TO_BE_ENCODED  -q QP  -tf_pb_path PATH/TO/PB  --WorkingMode=MODE  --LoopFilterDisable=1  --SAO=0  --ALF=0  -b PATH/TO/BITSTREAM/FILE  -o PATH/TO/RECONSTRUCTED/YUV > PATH/TO/ENCODER/LOG.txt
+  EncoderApp -c PATH/TO/CFG  -i PATH/TO/YUV  -wdt WIDTH_OF_INPUT  -hgt HEIGHT_OF_INPUT  -fr FRAMERATE_OF_INPUT  -f FRAMES_TO_BE_ENCODED  -q QP  -tf_pb_path ./ckpt/XXX.pb  --WorkingMode=MODE  --LoopFilterDisable=1  --SAO=0  --ALF=0  -b PATH/TO/BITSTREAM/FILE  -o PATH/TO/RECONSTRUCTED/YUV > PATH/TO/ENCODER/LOG.txt
   ```
 
   ```
-  DecoderApp -b PATH/TO/BITSTREAM/FILE  -tf_pb_path PATH/TO/PB  --WorkingMode=MODE  > PATH/TO/DECODER/LOG.txt
+  DecoderApp -b PATH/TO/BITSTREAM/FILE  -tf_pb_path ./ckpt/XXX.pb  --WorkingMode=MODE  > PATH/TO/DECODER/LOG.txt
   ```
 
   
 
-# TODO
+## TODO
 
 data generation & training 

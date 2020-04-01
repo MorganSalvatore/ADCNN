@@ -73,7 +73,7 @@ protected:
   bool          m_packedYUVMode;                      ///< If true, output 10-bit and 12-bit YUV data as 5-byte and 3-byte (respectively) packed YUV data
   std::string   m_cacheCfgFile;                       ///< Config file of cache model
   int           m_statMode;                           ///< Config statistic mode (0 - bit stat, 1 - tool stat, 3 - both)
-#if WMZ_CNNLF
+#if ADCNN
   std::string		m_pbpath;
   std::string		m_sWorkingMode;
   std::string		m_iGPUid;

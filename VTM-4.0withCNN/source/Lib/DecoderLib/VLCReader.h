@@ -172,7 +172,7 @@ private:
   int truncatedUnaryEqProb( const int maxSymbol );
   void xReadTruncBinCode( uint32_t& ruiSymbol, const int uiMaxSymbol );
   int  alfGolombDecode( const int k );
-#if WMZ_CNNLF
+#if ADCNN
   void cnnlf(CnnlfSliceParam& cnnlfSliceParam);
 #endif
 

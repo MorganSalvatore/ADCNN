@@ -1,6 +1,6 @@
 #include "CNNLoopFilter.h"
 
-#if WMZ_CNNLF
+#if ADCNN
 //#include "CodingStructure.h"
 #include "Picture.h"
 #include "CommonLib/UnitTools.h"

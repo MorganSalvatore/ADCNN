@@ -2,7 +2,7 @@
 #include "CommonLib/Picture.h"
 #include "CommonLib/CodingStructure.h"
 
-#if WMZ_CNNLF
+#if ADCNN
 #define CnnlfCtx(c) SubCtx( Ctx::ctbCnnlfFlag, c )
 
 EncCNNLoopFilter::EncCNNLoopFilter()

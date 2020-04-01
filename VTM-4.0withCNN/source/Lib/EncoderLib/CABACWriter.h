@@ -184,7 +184,7 @@ public:
   void        codeAlfCtuEnableFlags     ( CodingStructure& cs, ComponentID compID, AlfSliceParam* alfParam);
   void        codeAlfCtuEnableFlag      ( CodingStructure& cs, uint32_t ctuRsAddr, const int compIdx, AlfSliceParam* alfParam = NULL );
 
-#if WMZ_CNNLF
+#if ADCNN
   void        codeCnnlfCtuEnableFlags(CodingStructure& cs, ChannelType channel, CnnlfSliceParam* cnnlfParam);
   void        codeCnnlfCtuEnableFlags(CodingStructure& cs, ComponentID compID, CnnlfSliceParam* cnnlfParam);
   void        codeCnnlfCtuEnableFlag(CodingStructure& cs, uint32_t ctuRsAddr, const int compIdx, CnnlfSliceParam* cnnlfParam = NULL);

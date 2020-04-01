@@ -50,7 +50,7 @@
 #include <assert.h>
 #include <cassert>
 
-#define WMZ_CNNLF   1
+#define ADCNN   1
 
 #define SUMMARY_OUT 1 //WJL
 
@@ -1624,7 +1624,7 @@ struct AlfSliceParam
   }
 };
 
-#if WMZ_CNNLF
+#if ADCNN
 struct CnnlfSliceParam
 {
 	bool enabledFlag[MAX_NUM_COMPONENT];

@@ -283,7 +283,7 @@ uint32_t DecApp::decode()
 void DecApp::xCreateDecLib()
 {
   initROM();
-#if WMZ_CNNLF
+#if ADCNN
   m_cDecLib.setpbpath(m_pbpath);
   m_cDecLib.setworkingmode(m_sWorkingMode);
   m_cDecLib.setgpuid(m_iGPUid);

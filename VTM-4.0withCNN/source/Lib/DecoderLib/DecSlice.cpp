@@ -96,7 +96,7 @@ void DecSlice::decompressSlice( Slice* slice, InputBitstream* bitstream )
 #endif
   cs.pcv              = slice->getPPS()->pcv;
   cs.chromaQpAdj      = 0;
-#if WMZ_CNNLF
+#if ADCNN
   cs.picture->resizeCnnlfCtuEnableFlag(cs.pcv->sizeInCtus);
 #endif
   cs.picture->resizeSAO(cs.pcv->sizeInCtus, 0);

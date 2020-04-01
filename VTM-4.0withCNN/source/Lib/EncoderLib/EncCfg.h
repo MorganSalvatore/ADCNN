@@ -585,7 +585,7 @@ protected:
 
   bool        m_alf;                                          ///< Adaptive Loop Filter
 
-#if WMZ_CNNLF
+#if ADCNN
   bool				m_cnnlf;                                        ///< Cnn Loop Filter
   std::string		m_pbpath;
   std::string		m_sWorkingMode;
@@ -1491,7 +1491,7 @@ public:
   void        setUseALF( bool b ) { m_alf = b; }
   bool        getUseALF()                                      const { return m_alf; }
 
-#if WMZ_CNNLF
+#if ADCNN
   void					setUseCNNLF(bool b)				{ m_cnnlf = b; }
   bool					getUseCNNLF()			const { return m_cnnlf; }
 

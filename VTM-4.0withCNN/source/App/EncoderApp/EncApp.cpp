@@ -564,7 +564,7 @@ void EncApp::xInitLibCfg()
 #endif
   m_cEncLib.setUseALF                                            ( m_alf );
 
-#if WMZ_CNNLF
+#if ADCNN
   m_cEncLib.setUseCNNLF		(m_cnnlf);
   m_cEncLib.setpbpath		(m_pbpath);
   m_cEncLib.setWorkingMode	(cfg_WorkingMode);

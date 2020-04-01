@@ -940,7 +940,7 @@ private:
 
   bool              m_alfEnabledFlag;
 
-#if WMZ_CNNLF
+#if ADCNN
   bool              m_cnnlfEnabledFlag;   //全局开关
 #endif
 
@@ -1146,7 +1146,7 @@ public:
   bool                    getALFEnabledFlag() const                                                       { return m_alfEnabledFlag; }
   void                    setALFEnabledFlag( bool b )                                                     { m_alfEnabledFlag = b; }
 
-#if WMZ_CNNLF
+#if ADCNN
   bool                    getCNNLFEnabledFlag() const { return m_cnnlfEnabledFlag; }
   void                    setCNNLFEnabledFlag(bool b) { m_cnnlfEnabledFlag = b; }
 #endif
@@ -1713,7 +1713,7 @@ private:
 
   AlfSliceParam              m_alfSliceParam;
 
-#if WMZ_CNNLF
+#if ADCNN
   CnnlfSliceParam            m_cnnlfSliceParam;
 #endif
 
@@ -2006,7 +2006,7 @@ public:
   void                        setAlfSliceParam( AlfSliceParam& alfSliceParam ) { m_alfSliceParam = alfSliceParam; }
   AlfSliceParam&              getAlfSliceParam() { return m_alfSliceParam; }
 
-#if WMZ_CNNLF
+#if ADCNN
   void                        setCnnlfSliceParam(CnnlfSliceParam& cnnlfSliceParam) { m_cnnlfSliceParam = cnnlfSliceParam; }
   CnnlfSliceParam&            getCnnlfSliceParam() { return m_cnnlfSliceParam; }
 #endif

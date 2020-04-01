@@ -1333,7 +1333,7 @@ const CtxSet ContextSetCfg::ctbAlfFlag =
   } )
 };
 
-#if WMZ_CNNLF
+#if ADCNN
 const CtxSet ContextSetCfg::ctbCnnlfFlag =
 {
 	ContextSetCfg::addCtxSet

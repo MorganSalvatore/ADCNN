@@ -57,7 +57,7 @@
 #include "EncReshape.h"
 #endif
 #include "EncAdaptiveLoopFilter.h"
-#if WMZ_CNNLF
+#if ADCNN
 #include "EncCNNLoopFilter.h"
 #endif
 #include "RateCtrl.h"
@@ -97,7 +97,7 @@ private:
   LoopFilter                m_cLoopFilter;                        ///< deblocking filter class
   EncSampleAdaptiveOffset   m_cEncSAO;                            ///< sample adaptive offset class
   EncAdaptiveLoopFilter     m_cEncALF;
-#if WMZ_CNNLF
+#if ADCNN
   EncCNNLoopFilter          m_cEncCNNLF;
 #endif
   HLSWriter                 m_HLSWriter;                          ///< CAVLC encoder
@@ -197,7 +197,7 @@ public:
   EncSampleAdaptiveOffset* getSAO               ()              { return  &m_cEncSAO;              }
   EncAdaptiveLoopFilter*  getALF                ()              { return  &m_cEncALF;              }
 
-#if WMZ_CNNLF
+#if ADCNN
   EncCNNLoopFilter*       getCNNLF() { return  &m_cEncCNNLF; }
 #endif
 

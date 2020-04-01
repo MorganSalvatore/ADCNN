@@ -47,7 +47,7 @@
 #include "CommonLib/NAL.h"
 #include "EncSampleAdaptiveOffset.h"
 #include "EncAdaptiveLoopFilter.h"
-#if WMZ_CNNLF
+#if ADCNN
 #include "EncCNNLoopFilter.h"
 #endif
 #if JVET_M0427_INLOOP_RESHAPER
@@ -146,7 +146,7 @@ private:
   EncSampleAdaptiveOffset*  m_pcSAO;
   EncAdaptiveLoopFilter*    m_pcALF;
 
-#if WMZ_CNNLF
+#if ADCNN
   EncCNNLoopFilter*    m_pcCNNLF;
 #endif
 

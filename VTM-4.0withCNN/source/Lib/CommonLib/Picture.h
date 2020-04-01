@@ -330,7 +330,7 @@ public:
     }
   }
 
-#if WMZ_CNNLF
+#if ADCNN
   std::vector<uint8_t> m_cnnlfCtuEnableFlag[MAX_NUM_COMPONENT];
   uint8_t* getCnnlfCtuEnableFlag(int compIdx) { return m_cnnlfCtuEnableFlag[compIdx].data(); }
   std::vector<uint8_t>* getCnnlfCtuEnableFlag() { return m_cnnlfCtuEnableFlag; }

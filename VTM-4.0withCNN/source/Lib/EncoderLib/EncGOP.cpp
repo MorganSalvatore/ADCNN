@@ -171,7 +171,7 @@ void EncGOP::init ( EncLib* pcEncLib )
   m_pcLoopFilter         = pcEncLib->getLoopFilter();
   m_pcSAO                = pcEncLib->getSAO();
   m_pcALF = pcEncLib->getALF();
-#if WMZ_CNNLF
+#if ADCNN
   m_pcCNNLF = pcEncLib->getCNNLF();
 #endif
   m_pcRateCtrl           = pcEncLib->getRateCtrl();
@@ -2185,7 +2185,7 @@ void EncGOP::compressGOP( int iPOCLast, int iNumPicRcvd, PicList& rcListPic,
     pcPic->m_iOffsetCtu.resize( numberOfCtusInFrame );
 #endif
 
-#if WMZ_CNNLF
+#if ADCNN
 	if (pcSlice->getSPS()->getCNNLFEnabledFlag())
 	{
 		pcPic->resizeCnnlfCtuEnableFlag(numberOfCtusInFrame);
@@ -2433,7 +2433,7 @@ void EncGOP::compressGOP( int iPOCLast, int iNumPicRcvd, PicList& rcListPic,
   #endif
       }
 
-#if WMZ_CNNLF
+#if ADCNN
 	  if (pcSlice->getSPS()->getCNNLFEnabledFlag())
 	  {
 		  CnnlfSliceParam cnnlfSliceParam;

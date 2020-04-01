@@ -305,7 +305,7 @@ public:
   static const CtxSet   ImvFlag;
   static const CtxSet   GBiIdx;
   static const CtxSet   ctbAlfFlag;
-#if WMZ_CNNLF
+#if ADCNN
   static const CtxSet   ctbCnnlfFlag;
 #endif
   static const CtxSet   MHIntraFlag;

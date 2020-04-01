@@ -1,6 +1,7 @@
 #ifndef __CNNLOOPFILTER__
 #define __CNNLOOPFILTER__
 
+
 #define NOMINMAX
 #include "tensorflow/core/public/session.h"
 #include "tensorflow/core/platform/env.h"

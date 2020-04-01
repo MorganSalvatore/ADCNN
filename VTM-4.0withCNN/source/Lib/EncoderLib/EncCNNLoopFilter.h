@@ -3,7 +3,7 @@
 
 #include "CommonLib/CNNLoopFilter.h"
 #include "CABACWriter.h"
-#if WMZ_CNNLF
+#if ADCNN
 class EncCNNLoopFilter : public CNNLoopFilter
 {
 

@@ -46,7 +46,7 @@
 #include "CommonLib/CodingStatistics.h"
 #endif
 #include "CommonLib/AdaptiveLoopFilter.h"
-#if WMZ_CNNLF
+#if ADCNN
 #include "CommonLib/CNNLoopFilter.h"
 #endif
 
@@ -994,7 +994,7 @@ void HLSyntaxReader::parseSPS(SPS* pcSPS)
 
   READ_FLAG( uiCode, "sps_sao_enabled_flag" );                      pcSPS->setSAOEnabledFlag ( uiCode ? true : false );
   READ_FLAG( uiCode, "sps_alf_enabled_flag" );                      pcSPS->setALFEnabledFlag ( uiCode ? true : false );
-#if WMZ_CNNLF
+#if ADCNN
   pcSPS->setCNNLFEnabledFlag(true);        // always enable CNNLF
 #endif
   READ_FLAG( uiCode, "sps_pcm_enabled_flag" );                          pcSPS->setPCMEnabledFlag( uiCode ? true : false );
@@ -1597,7 +1597,7 @@ void HLSyntaxReader::parseSliceHeader (Slice* pcSlice, ParameterSetManager *para
       alf( pcSlice->getAlfSliceParam() );
     }
 
-#if WMZ_CNNLF
+#if ADCNN
 	if (sps->getCNNLFEnabledFlag())
 	{
 		cnnlf(pcSlice->getCnnlfSliceParam());
@@ -2638,7 +2638,7 @@ void HLSyntaxReader::xReadTruncBinCode( uint32_t& ruiSymbol, const int uiMaxSymb
   }
 }
 
-#if WMZ_CNNLF
+#if ADCNN
 void HLSyntaxReader::cnnlf(CnnlfSliceParam& cnnlfSliceParam)
 {
 	uint32_t code;

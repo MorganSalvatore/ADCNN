@@ -728,7 +728,7 @@ bool EncAppCfg::parseCfg( int argc, char* argv[] )
   ("SIMD",                                            ignore,                                      string(""), "SIMD extension to use (SCALAR, SSE41, SSE42, AVX, AVX2, AVX512), default: the highest supported extension\n")
 #endif
   // File, I/O and source parameters
-#if WMZ_CNNLF
+#if ADCNN
   ("CNNLF",             m_cnnlf,			true,							"Enable Cnn Loop Filter")
   ("tf_pb_path",		m_pbpath,			string("weights.pb"),			"tensorflow pb file path")
   ("WorkingMode,-mode", cfg_WorkingMode,	string("GPU"),					"Deep Learning Working Mode")

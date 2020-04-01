@@ -136,7 +136,7 @@ void EncLib::create ()
     m_cEncALF.create( getSourceWidth(), getSourceHeight(), m_chromaFormatIDC, m_maxCUWidth, m_maxCUHeight, m_maxTotalCUDepth, m_bitDepth, m_inputBitDepth );
   }
 
-#if WMZ_CNNLF
+#if ADCNN
   if (m_cnnlf)
   {
 	  m_cEncCNNLF.initTF(m_pbpath, m_sWorkingMode, m_iGPUid);
@@ -172,7 +172,7 @@ void EncLib::destroy ()
   m_cCuEncoder.         destroy();
 #endif
 
-#if WMZ_CNNLF
+#if ADCNN
   if (m_cnnlf)
   {
 	  m_cEncCNNLF.destroy();
@@ -1013,7 +1013,7 @@ void EncLib::xInitSPS(SPS &sps)
   sps.setUseStrongIntraSmoothing( m_useStrongIntraSmoothing );
 #endif
   sps.setALFEnabledFlag( m_alf );
-#if WMZ_CNNLF
+#if ADCNN
   sps.setCNNLFEnabledFlag(m_cnnlf);
 #endif
   sps.setVuiParametersPresentFlag(getVuiParametersPresentFlag());

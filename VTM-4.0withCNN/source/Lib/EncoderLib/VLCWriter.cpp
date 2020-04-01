@@ -44,7 +44,7 @@
 #include "CommonLib/dtrace_next.h"
 #include "EncAdaptiveLoopFilter.h"
 #include "CommonLib/AdaptiveLoopFilter.h"
-#if WMZ_CNNLF
+#if ADCNN
 #include "EncCNNLoopFilter.h"
 #include "CommonLib/CNNLoopFilter.h"
 #endif
@@ -674,7 +674,7 @@ void HLSWriter::codeSPS( const SPS* pcSPS )
 
   WRITE_FLAG( pcSPS->getSAOEnabledFlag(),                                            "sps_sao_enabled_flag");
   WRITE_FLAG( pcSPS->getALFEnabledFlag(),                                            "sps_alf_enabled_flag" );
-//#if WMZ_CNNLF
+//#if ADCNN
 //  WRITE_FLAG(pcSPS->getCNNLFEnabledFlag(), "sps_cnn_enabled_flag");
 //#endif
   WRITE_FLAG( pcSPS->getPCMEnabledFlag() ? 1 : 0,                                    "sps_pcm_enabled_flag");
@@ -1172,7 +1172,7 @@ void HLSWriter::codeSliceHeader         ( Slice* pcSlice )
       alf( pcSlice->getAlfSliceParam() );
     }
 
-#if WMZ_CNNLF
+#if ADCNN
 	if (pcSlice->getSPS()->getCNNLFEnabledFlag())
 	{
 		cnnlf(pcSlice->getCnnlfSliceParam());
@@ -1923,7 +1923,7 @@ void HLSWriter::truncatedUnaryEqProb( int symbol, const int maxSymbol )
   xWriteCode( bins, numBins );
 }
 
-#if WMZ_CNNLF
+#if ADCNN
 void HLSWriter::cnnlf(const CnnlfSliceParam& cnnlfSliceParam)
 {
 	WRITE_FLAG(cnnlfSliceParam.enabledFlag[COMPONENT_Y], "cnnlf_slice_enable_flag");
