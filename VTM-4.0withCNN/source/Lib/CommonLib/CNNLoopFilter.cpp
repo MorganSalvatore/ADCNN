@@ -29,7 +29,7 @@ void CNNLoopFilter::initTF(std::string pbpath, std::string workingmode, std::str
 		}
 	}
 
-	std::cout << "start initalize session" << std::endl;
+	//std::cout << "start initalize session" << std::endl;
 	Status status = NewSession(SessionOptions(), &session);
 	if (!status.ok()) {
 		std::cout << status.ToString() << std::endl;
@@ -45,7 +45,7 @@ void CNNLoopFilter::initTF(std::string pbpath, std::string workingmode, std::str
 	if (!status.ok()) {
 		std::cout << status.ToString() << std::endl;
 	}
-	std::cout << "pb加载成功" << std::endl;
+	//std::cout << "pb加载成功" << std::endl;
 }
 
 void CNNLoopFilter::create(const int picWidth, const int picHeight, const ChromaFormat format, const int maxCUWidth, const int maxCUHeight, const int maxCUDepth, const int inputBitDepth[MAX_NUM_CHANNEL_TYPE])
@@ -90,17 +90,17 @@ void CNNLoopFilter::CNNLFProcess(CodingStructure& cs, CnnlfSliceParam& cnnlfSlic
 
 	for (int compIdx = 0; compIdx < MAX_NUM_COMPONENT; compIdx++)
 	{
-		std::cout << cnnlfSliceParam.enabledFlag[compIdx] << std::endl;
+		//std::cout << cnnlfSliceParam.enabledFlag[compIdx] << std::endl;
 		int ctuIdx = 0;
 		for (int yPos = 0; yPos < pcv.lumaHeight; yPos += pcv.maxCUHeight)
 		{
 			for (int xPos = 0; xPos < pcv.lumaWidth; xPos += pcv.maxCUWidth)
 			{
-				std::cout << int(m_ctuEnableFlag[compIdx][ctuIdx]);
-				std::cout << " ";
+				//std::cout << int(m_ctuEnableFlag[compIdx][ctuIdx]);
+				//std::cout << " ";
 				ctuIdx++;
 			}
-			std::cout << std::endl;
+			//std::cout << std::endl;
 		}
 	}
 
@@ -283,11 +283,11 @@ void CNNLoopFilter::runCNNLF(CodingStructure& cs, const PelUnitBuf& recUnitBuf, 
 
 
 	//构造输入输出的vector<Tensor>
-	//std::vector<std::pair<string, Tensor>> inputs = { { "input_Y", y },{ "input_U", u },{ "input_V", v },{ "CU_Y", cumap_y },{ "CU_UV",cumap_uv },{ "QP", QPmap } };
-	std::vector<std::pair<string, Tensor>> inputs = { { "Sinput_Y", y },{ "Sinput_U", u },{ "Sinput_V", v },{ "SCU_Y", cumap_y },{ "SCU_UV",cumap_uv },{ "SQP", QPmap } };
+	std::vector<std::pair<string, Tensor>> inputs = { { "input_Y", y },{ "input_U", u },{ "input_V", v },{ "CU_Y", cumap_y },{ "CU_UV",cumap_uv },{ "QP", QPmap } };
+	//std::vector<std::pair<string, Tensor>> inputs = { { "Sinput_Y", y },{ "Sinput_U", u },{ "Sinput_V", v },{ "SCU_Y", cumap_y },{ "SCU_UV",cumap_uv },{ "SQP", QPmap } };
 	std::vector<Tensor> outputs;
-	//status = session->Run(inputs, { "stage2_Y/res_Y/BiasAdd","stage2_U/res_U/BiasAdd","stage2_V/res_V/BiasAdd" }, {}, &outputs);
-	session->Run(inputs, { "student/stage2_Y/res_Y/BiasAdd","student/stage2_U/res_U/BiasAdd","student/stage2_V/res_V/BiasAdd" }, {}, &outputs);
+	session->Run(inputs, { "stage2_Y/res_Y/BiasAdd","stage2_U/res_U/BiasAdd","stage2_V/res_V/BiasAdd" }, {}, &outputs);
+	//session->Run(inputs, { "student/stage2_Y/res_Y/BiasAdd","student/stage2_U/res_U/BiasAdd","student/stage2_V/res_V/BiasAdd" }, {}, &outputs);
 
 	Tensor res_y = outputs[0];
 	writeTensor2Comp(cnnUnitBuf, y, res_y, COMPONENT_Y, m_picHeight, m_picWidth, m_inputBitDepth[CHANNEL_TYPE_LUMA]);

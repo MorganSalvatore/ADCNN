@@ -4,6 +4,7 @@ str.bin
 /build/
 /bin/
 /lib/
+/test/
 core
 deploy
 *.sdf
